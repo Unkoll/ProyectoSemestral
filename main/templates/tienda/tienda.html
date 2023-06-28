@@ -1,0 +1,18 @@
+{% extends 'tienda/base.html' %}
+
+
+{% block body %}
+
+<br>
+<h1 class="text-center login-color">Nuestros Productos</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <br><br><br><br>
+    <ul>
+        {% for producto in productos %}
+            <li><a href="/tienda/producto/{{ producto.id }}/">{{ producto.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
