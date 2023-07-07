@@ -1,9 +1,9 @@
 function register(){
-    location.href = "registro.html"
+    location.href = "/registro"
 }
 
 function login(){
-    location.href = "index.html"
+    location.href = "/inicio"
 }
 
 function principal(){
@@ -12,7 +12,7 @@ function principal(){
     pass = document. getElementById("contraseña").value;
 
     if(email == "admin" && pass == "0000"){
-        location.href = "principal.html"
+        location.href = "/administrador"
     }
     else{
         alert("Datos incorrectos, intente nuevamente.")
