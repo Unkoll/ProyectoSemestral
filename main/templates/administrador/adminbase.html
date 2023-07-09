@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Pannel</title>
+  <link rel="stylesheet" href="{% static 'css/adminstyle.css' %}">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+</head>
+
+<body>
+  
+  <div class="container-admin">
+    <nav class="nav">
+      <div>
+        <ul class="list">
+          <img src="{% static 'img/LightLogoImg.png'%}" alt="Admin" class="admin-logo">
+          <li class="list__item">
+            <div class="list__button">
+              <img src="{% static 'iconos/menu.svg' %}" class="list__img">
+              <a href="/administrador/" class="nav__link">Inicio</a>
+            </div>
+          </li>
+          
+          <li class="list__item list__item--click">
+          <div class="list__button list__button--click">
+            <img src="{% static 'iconos/docs.svg' %}" class="list__img">
+            <a href="#" class="nav__link">Servicios</a>
+            <img src="{% static 'iconos/flecha.svg' %}" class="list__arrow">
+          </div>
+          
+          <ul class="list__show">
+            <li class="list__inside">
+              <a href="/administrador/usuarios/" class="nav__link nav__link--inside">Usuarios</a>
+            </li>
+            
+            <li class="list__inside">
+              <a href="/administrador/categorias/" class="nav__link nav__link--inside">Categorías</a>
+            </li>
+            
+            <li class="list__inside">
+              <a href="/administrador/productos/" class="nav__link nav__link--inside">Productos</a>
+            </li>
+
+          </ul>
+        </li>
+        
+        <li class="list__item list__item--click">
+          <div class="list__button list__button--click">
+            <img src="{% static 'iconos/campana.svg' %}" class="list__img">
+            <a href="#" class="nav__link">Pedidos</a>
+          </div>
+        </li>
+        
+        <li class="list__item">
+          <div class="list__button">
+            <img src="{% static 'iconos/message.svg' %}" class="list__img">
+            <a href="/login" class="nav__link">Salir</a>
+          </div>
+        </li>
+        
+        <br><br><br><br><br>
+      </ul>
+    </nav>
+    <div>
+
+      {% block body %}
+
+      {% endblock %}
+
+    </div>
+  </div>
+
+
+  </div>
+  
+
+  
+  
+  <script src="{% static 'js/link.js' %}"></script>
+  <script src="{% static 'js/carrito.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

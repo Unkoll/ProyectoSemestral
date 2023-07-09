@@ -7,6 +7,9 @@
 </head>
 <body>
     <div class="container">
+        <br>
+        <a href="/administrador/productos" class="btn btn-danger">Volver</a>
+        <br><br>
         <h1>Editar Producto</h1>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -25,10 +28,6 @@
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
                 <input type="file" class="form-control" id="foto" name="foto">
-            </div>
-            <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" class="form-control" id="categoria" name="categoria" value="{{ producto.categoria }}" required>
             </div>
             <div class="mb-3">
                 <label for="id_usuario" class="form-label">ID Usuario</label>

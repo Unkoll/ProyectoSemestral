@@ -28,7 +28,11 @@
             </div>
             <div class="mb-3">
                 <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" class="form-control" id="categoria" name="categoria" required>
+                <select name="categoria" id="categoria" class="form-select" aria-label="Default select example">
+                    {% for categoria in categorias %}
+                    <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+                    {% endfor %}
+                  </select>
             </div>
             <div class="mb-3">
                 <label for="id_usuario" class="form-label">ID Usuario</label>
