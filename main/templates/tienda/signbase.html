@@ -15,14 +15,18 @@
 </head>
 
 <body style="background-image: url('{% static 'img/bettapng.png' %}')";>
+
+  
   <div>
     <img class="logo-position" src="{% static 'img/koiDinastyLogo.png' %}" alt="" width="450px">
     <div class="login-card-container login-glass-effect">
       
       {% block body %}
       {% endblock %}
-
+      
     </div>
+    {% block error %}
+    {% endblock %}
   </div>
 
   <script src="{% static 'js/link.js' %}"></script>

@@ -5,14 +5,24 @@
 
 <br>
 <h1 class="text-center login-color">Nuestros Productos</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <br><br><br><br>
-    <ul>
-        {% for producto in productos %}
-            <li><a href="/tienda/producto/{{ producto.id }}/">{{ producto.nombre }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
+  <br><br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for producto in productos %}
+      <div class="card card-properties border-success bg-transparent mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-success">
+          <img src="{{ producto.foto }}" class="card-img-top" alt="...">
+          <h5 class="card-title text-light">{{ producto.nombre }}</h5>
+        </div>
+        <div class="card-body text-success">
+          <p class="text-light">{{ producto.descripcion }}</p>
+          <h5 class="card-title">{{ producto.precio }}</h5>
+        </div>
+        <div class="card-footer bg-transparent border-success">
+          <a href="#" class="btn btn-primary">Agregar al carrito de compra</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
 
 {% endblock %}

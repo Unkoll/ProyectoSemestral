@@ -65,7 +65,6 @@ def eliminar_usuario(request, user_id):
     except Usuario.DoesNotExist:
         return redirect('lista_usuarios')  # Redirige a la lista de usuarios si el usuario no existe
 
-
 # CRUD Categorías
 def crear_categoria(request):
     if request.method == 'POST':
@@ -159,9 +158,7 @@ def eliminar_producto(request, producto_id):
 
     return render(request, 'administrador/eliminar_producto.html', {'producto': producto})
 
-
-
-
+#Registro de usuario desde la vista de cliente
 def registro(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -178,6 +175,7 @@ def registro(request):
     
     return render(request, 'tienda/registro.html')
 
+#Inicio de sesión
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -185,13 +183,15 @@ def login(request):
 
         try:
             user = Usuario.objects.get(email=email)
+            contra = Usuario.objects.get(password=password)
         except Usuario.DoesNotExist:
             user = None
+            contra = None
 
-        if user is not None and Usuario.password == password:
+        if user is not None and contra is not None:
             # Inicio de sesión exitoso
             # Realizar acciones adicionales si es necesario
-            return redirect('inicio')  # Redirige a la página de inicio después del inicio de sesión exitoso
+            return redirect('/')  # Redirige a la página de inicio después del inicio de sesión exitoso
 
         error_message = 'Correo electrónico o contraseña incorrectos'
     else:
@@ -234,11 +234,9 @@ def crear_boleta(request):
 
     return render(request, 'tienda/inicio.html')
 
-
 def ver_boletas(request):
     boletas = Boleta.objects.all()
     return render(request, 'tienda/ver_boletas.html', {'boletas': boletas})
-
 
 def ver_detalle_boleta(request, boleta_id):
     boleta = Boleta.objects.get(id=boleta_id)

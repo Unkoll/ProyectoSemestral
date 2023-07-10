@@ -149,6 +149,10 @@ body {
     align-items: center;
 }
 
+.carousel-image{
+    width: 100px;
+}
+
 .card-properties{
     margin-left: 60px;
     margin-bottom: 60px;

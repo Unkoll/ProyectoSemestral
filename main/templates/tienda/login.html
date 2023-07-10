@@ -1,13 +1,15 @@
 {% extends 'tienda/signbase.html' %}
 
+{% block error %}
+{% if error_message %}
+    <div class="alert alert-primary col-3" role="alert">
+        {{ error_message }}
+      </div>
+{% endif %}
+{% endblock %}
+
 
 {% block body %}
-{% if error_message %}
-<div class="alert alert-danger login-container" role="alert">
-    {{ error_message }}
-</div>
-{% endif %}
-
 <h1 class="text-center login-container">Inicio de Sesión</h1>
 
 <form method="POST">
@@ -20,12 +22,12 @@
         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
         <input type="password" class="form-control" id="password" name="password">
         <br>
-        <div id="emailHelp" class="login-color">Nunca revelaremos tu información a nadie. (profe puede
-            inciar sesión con "admin" y "0000" o como invitado ;)</div>
+        <div id="emailHelp" class="login-color">Nunca revelaremos tu información a nadie.</div>
+        <br>
     </div>
     <div class="mb-3 form-check">
     </div>
-    <button type="submit" class="btn-login">Iniciar Sesión</button>
+    <button type="submit" class="btn-login" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
     <button type="button" class="btn-login" onclick="register()">Registrarse</button>
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <button type="button" class="btn-login" onclick="invitado()">Ahora no</button>
